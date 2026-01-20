@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craigslist Pro | Pune Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="toast-container"></div>
+
+    <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-icon"><i class="fa-solid fa-peace"></i></div>
+          <span>craigslist</span>
+          <i class="fa-solid fa-xmark mobile-close-btn" onclick="toggleSidebar()"></i>
+        </div>
+        
+        <nav class="nav-links">
+            <a href="#" class="nav-item active" onclick="setActive(this)">
+                <i class="fa-solid fa-table-columns"></i> <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" onclick="setActive(this); showToast('Inbox is empty')">
+                <i class="fa-solid fa-envelope"></i> <span>Messages</span> 
+                <span class="badge">3</span>
+            </a>
+            <a href="#" class="nav-item" onclick="setActive(this); showToast('Saved Items loaded')">
+                <i class="fa-solid fa-bookmark"></i> <span>Saved</span>
+            </a>
+            <a href="#" class="nav-item" onclick="setActive(this); showToast('Opening Settings...')">
+                <i class="fa-solid fa-gear"></i> <span>Settings</span>
+            </a>
+        </nav>
+        
+        <div class="theme-wrapper">
+            <div class="theme-label">Appearance</div>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round">
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                </div>
+            </label>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        
+        <header>
+            <div class="mobile-menu-btn" onclick="toggleSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" placeholder="Search for jobs, housing, furniture..." onfocus="this.parentElement.classList.add('focused')" onblur="this.parentElement.classList.remove('focused')">
+                <div class="shortcut-hint">/</div>
+            </div>
+
+            <div class="header-actions">
+                <button class="btn-post-ad" onclick="showToast('Create New Ad Overlay Opening...')">
+                    <i class="fa-solid fa-plus"></i> Post Ad
+                </button>
+                <div class="profile-avatar" onclick="showToast('User Profile')">
+                    <span>UN</span>
+                    <div class="status-dot"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="hero-section">
+            <h1>Discover <span class="text-highlight">Pune</span></h1>
+            <p class="subtitle">The world's largest local marketplace, reimagined.</p>
+        </div>
+
+        <div class="bento-grid">
+            
+            <div class="card card-large gradient-purple" onclick="showToast('Viewing Housing in Baner')">
+                <div class="card-content">
+                    <div class="tag-pill">New</div>
+                    <h2>Housing in Baner</h2>
+                    <p>Verified apartments with 3D virtual tours available now.</p>
+                    <button class="btn-white-glass">Browse Listings <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <i class="fa-solid fa-house-chimney card-bg-icon"></i>
+            </div>
+
+            <div class="card card-square bg-surface hover-lift" onclick="showToast('Opening Jobs Dashboard')">
+                <div class="icon-box blue"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="stat-content">
+                    <h3>Jobs</h3>
+                    <h1 class="stat-number">1.2k</h1>
+                    <p class="stat-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +12% this week</p>
+                </div>
+            </div>
+
+            <div class="card card-square bg-surface hover-lift" onclick="showToast('Opening For Sale')">
+                <div class="icon-box orange"><i class="fa-solid fa-bullhorn"></i></div>
+                <div class="stat-content">
+                    <h3>For Sale</h3>
+                    <div class="mini-chart">
+                        <div class="bar" style="height: 30%"></div>
+                        <div class="bar" style="height: 50%"></div>
+                        <div class="bar" style="height: 40%"></div>
+                        <div class="bar active" style="height: 80%"></div>
+                        <div class="bar" style="height: 60%"></div>
+                    </div>
+                    <p class="stat-sub">Top: Electronics</p>
+                </div>
+            </div>
+
+            <div class="card card-wide bg-dark-glass" onclick="showToast('Event added to Calendar')">
+                <div class="event-details">
+                    <h3>Community Events</h3>
+                    <p><i class="fa-regular fa-clock"></i> Music Festival in Koregaon Park • Tomorrow 8 PM</p>
+                </div>
+                <div class="date-sticker">
+                    <span class="month">JAN</span>
+                    <span class="day">20</span>
+                </div>
+            </div>
+
+            <div class="card card-tall bg-surface" onclick="showToast('Opening Services Category')">
+                <div class="card-header">
+                    <h3>Services</h3>
+                    <span class="link-text">See All</span>
+                </div>
+                <ul class="service-list">
+                    <li><div class="check-circle"><i class="fa-solid fa-check"></i></div> Movers & Packers</li>
+                    <li><div class="check-circle"><i class="fa-solid fa-check"></i></div> House Cleaners</li>
+                    <li><div class="check-circle"><i class="fa-solid fa-check"></i></div> Mac Repair</li>
+                    <li><div class="check-circle"><i class="fa-solid fa-check"></i></div> Interior Painters</li>
+                    <li><div class="check-circle"><i class="fa-solid fa-check"></i></div> Event Planners</li>
+                </ul>
+                <button class="btn-full-width">Request Service</button>
+            </div>
+
+            <div class="card card-square gradient-blue" onclick="showToast('Joining Discussion...')">
+                <div class="centered-content">
+                    <i class="fa-solid fa-comments icon-large"></i>
+                    <h3>Forums</h3>
+                    <p>Join the discussion</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
