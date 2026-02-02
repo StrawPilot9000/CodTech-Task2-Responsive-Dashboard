@@ -5,7 +5,7 @@
 # ID: CTIS2512
 # Domain: UI/UX Design
 # Duration: 7 January 2026 to 4 February 2026
-# Mentor: Nila Santos
+# Mentor: Neela Santhosh Kumar
 
 ## Overview of the Project
 
